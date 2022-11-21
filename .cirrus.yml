@@ -22,4 +22,5 @@ docker_builder:
   #   - docker buildx build --platform linux/amd64,linux/arm64 --tag sonarsource/sonarqube:9.7.1-community --push ./9/community # Need to push this image to a private registry: can we use a repo in our artifactory for that? which one? how can we can login our build to it?
   run_script:
     - echo "Test the pull of an arm64-compatible image"
+    - docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
     - docker pull sonarsource/sonarqube:9.7.1-community
